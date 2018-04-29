@@ -8,7 +8,7 @@ public class Config {
 	
 	public Config() {}
 	
-	public Config(int any, int mes, String idiomaEntrada, String idiomaSalida) {
+	public Config(int anio, int mes, String idiomaEntrada, String idiomaSalida) {
 		super();
 		this.anio = anio;
 		this.mes = mes;

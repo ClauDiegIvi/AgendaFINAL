@@ -9,19 +9,19 @@ public class Internacional {
 	private String[] letrasInicialDias;
 	private String[] meses;
 	private String[] formatoFecha;
-	private String dueño;
+	private String dueno;
 	
 	public Internacional() {}
 
 	public Internacional(String agenda, String[] dias, String[] letrasInicialDias, String[] meses,
-			String[] formatoFecha, String dueño) {
+			String[] formatoFecha, String dueno) {
 		super();
 		this.agenda = agenda;
 		this.dias = dias;
 		this.letrasInicialDias = letrasInicialDias;
 		this.meses = meses;
 		this.formatoFecha = formatoFecha;
-		this.dueño = dueño;
+		this.dueno = dueno;
 	}
 
 	public String getAgenda() {
@@ -64,18 +64,18 @@ public class Internacional {
 		this.formatoFecha = formatoFecha;
 	}
 
-	public String getDueño() {
-		return dueño;
+	public String getDueno() {
+		return dueno;
 	}
 
-	public void setDueño(String dueño) {
-		this.dueño = dueño;
+	public void setDueno(String dueno) {
+		this.dueno = dueno;
 	}
 
 	@Override
 	public String toString() {
 		return "Internacional [agenda=" + agenda + ", dias=" + Arrays.toString(dias) + ", letrasInicialDias="
 				+ Arrays.toString(letrasInicialDias) + ", meses=" + Arrays.toString(meses) + ", formatoFecha="
-				+ Arrays.toString(formatoFecha) + ", dueño=" + dueño + "]";
+				+ Arrays.toString(formatoFecha) + ", dueï¿½o=" + dueno + "]";
 	}
 }
