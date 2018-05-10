@@ -8,20 +8,22 @@ public class Internacional {
 	private String[] dias;
 	private String[] letrasInicialDias;
 	private String[] meses;
-	private String[] formatoFecha;
-	private String dueño;
+	private String[] anios;
+	private String hecho,
+					closed,
+					err;
 	
 	public Internacional() {}
 
-	public Internacional(String agenda, String[] dias, String[] letrasInicialDias, String[] meses,
-			String[] formatoFecha, String dueño) {
-		super();
+	public Internacional(String agenda, String[] dias, String[] letrasInicialDias, String[] meses, String[] anios, String hecho, String closed, String err) {
 		this.agenda = agenda;
 		this.dias = dias;
 		this.letrasInicialDias = letrasInicialDias;
 		this.meses = meses;
-		this.formatoFecha = formatoFecha;
-		this.dueño = dueño;
+		this.anios = anios;
+		this.hecho = hecho;
+		this.closed = closed;
+		this.err = err;
 	}
 
 	public String getAgenda() {
@@ -56,26 +58,49 @@ public class Internacional {
 		this.meses = meses;
 	}
 
-	public String[] getFormatoFecha() {
-		return formatoFecha;
+	public String[] getAnios() {
+		return anios;
 	}
 
-	public void setFormatoFecha(String[] formatoFecha) {
-		this.formatoFecha = formatoFecha;
+	public void setAnios(String[] anios) {
+		this.anios = anios;
 	}
 
-	public String getDueño() {
-		return dueño;
+	public String getHecho() {
+		return hecho;
 	}
 
-	public void setDueño(String dueño) {
-		this.dueño = dueño;
+	public void setHecho(String hecho) {
+		this.hecho = hecho;
+	}
+
+	public String getClosed() {
+		return closed;
+	}
+
+	public void setClosed(String closed) {
+		this.closed = closed;
+	}
+
+	public String getErr() {
+		return err;
+	}
+
+	public void setErr(String err) {
+		this.err = err;
 	}
 
 	@Override
 	public String toString() {
-		return "Internacional [agenda=" + agenda + ", dias=" + Arrays.toString(dias) + ", letrasInicialDias="
-				+ Arrays.toString(letrasInicialDias) + ", meses=" + Arrays.toString(meses) + ", formatoFecha="
-				+ Arrays.toString(formatoFecha) + ", dueño=" + dueño + "]";
+		return "Internacional{" +
+				"agenda='" + agenda + '\'' +
+				", dias=" + Arrays.toString(dias) +
+				", letrasInicialDias=" + Arrays.toString(letrasInicialDias) +
+				", meses=" + Arrays.toString(meses) +
+				", anios=" + Arrays.toString(anios) +
+				", hecho='" + hecho + '\'' +
+				", closed='" + closed + '\'' +
+				", err='" + err + '\'' +
+				'}';
 	}
 }
