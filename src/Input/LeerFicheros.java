@@ -1,12 +1,18 @@
 package Input;
 
+import Proceso.PeticionFormat;
 import model.Config;
 import model.Internacional;
+import model.Peticion;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.List;
+
+import static Proceso.PeticionFormat.checkPetitions;
 
 public class LeerFicheros {
 
@@ -53,33 +59,49 @@ public class LeerFicheros {
         }
 
     }
-    //TODO leerPeticion tiene que devolver los resultados de las peticiones validas en un array
-    public static void leerPeticion() throws IOException {
+    //TODO leerPeticion tiene que devolver los resultados de las peticiones validas en un array   !! Done?
+    public static List<Peticion> leerPeticion() throws IOException, ParseException {
+
+        List<Peticion> petitionList = new ArrayList<>();
 
         FileReader file = new FileReader(PETICIONES);
         BufferedReader reader = new BufferedReader(file);
 
         String linea;
 
-        /*
-        Aquí se necesita el metodo que procesará cada linea de texto del archivo peticiones.txt
-        EJEMPLO DE LO QUE SE PASA:
-
-        ReunioJava Sala1 07/10/2017 08/11/2017 LMCJVSG 08-10_19-21
-
-        ReunioJava -> És el nom de l’activitat (sense espais interns)
-        Sala1 -> És el nom de la sala que es vol reservar (també sense espais interns)
-        07/10/2017 -> Data inicial del període de reserva
-        08/11/2017 -> Data final del període de reserva
-        LMCJVSG -> Màscara de dies a reservar durant el període
-        08-10_19-21. Màscara de hores a reservar durant el període
-        */
         while ((linea = reader.readLine()) != null ){
-            //TODO Falta el metodo de procesamiento! (DIEGO)
-            System.out.println(linea);
-        }
+            //TODO Falta el metodo de procesamiento! (DIEGO)  !! Done?
+            if ( checkPetitions(linea)){
+                Peticion peticion = new Peticion();
 
+                String[] parts = linea.split(" ");
+                peticion.setActividad(parts[0]);
+                peticion.setNombreSala(parts[1]);
+                peticion.setFechaInicio(PeticionFormat.parseDate(parts[2]));  //TODO revisar Exeption !!
+                peticion.setFechaFin(PeticionFormat.parseDate(parts[3]));
+                peticion.setDias(PeticionFormat.getCharList(parts[4]));
+
+                List<Integer> hours = PeticionFormat.getRangeTime(parts[5]);
+                List<Integer> rango1 = new ArrayList<>();
+                List<Integer> rango2 = new ArrayList<>();
+
+                if (hours.size() <= 2){
+                    rango1.add(hours.indexOf(0));
+                    rango1.add(hours.indexOf(1));
+                    peticion.setPeriodoUno(rango1);
+                }else{
+                    rango1.add(hours.indexOf(0));
+                    rango1.add(hours.indexOf(1));
+                    rango2.add(hours.indexOf(2));
+                    rango2.add(hours.indexOf(3));
+                    peticion.setPeriodoUno(rango1);
+                    peticion.setPeriodoUno(rango2);
+                }
+                petitionList.add(peticion);
+            }
+        }
         reader.close();
+        return petitionList;
     }
 
     public static Internacional leerInternacional(Config config) throws IOException {

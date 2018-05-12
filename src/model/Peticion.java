@@ -2,6 +2,7 @@ package model;
 
 import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 
 public class Peticion {
 	
@@ -9,14 +10,14 @@ public class Peticion {
 	private String nombreSala;
 	private Date fechaInicio;
 	private Date fechaFin;
-	private String[] dias;
-	private int[] periodoUno;
-	private int[] periodoDos;
+	private List<Character> dias;
+	private List<Integer> periodoUno;
+	private List<Integer> periodoDos;
 	
 	public Peticion() {}
 
-	public Peticion(String actividad, String nombreSala, Date fechaInicio, Date fechaFin, String[] dias,
-			int[] periodoUno, int[] periodoDos) {
+	public Peticion(String actividad, String nombreSala, Date fechaInicio, Date fechaFin, List<Character> dias,
+                    List<Integer> periodoUno, List<Integer> periodoDos) {
 		super();
 		this.actividad = actividad;
 		this.nombreSala = nombreSala;
@@ -59,34 +60,34 @@ public class Peticion {
 		this.fechaFin = fechaFin;
 	}
 
-	public String[] getDias() {
+	public List<Character> getDias() {
 		return dias;
 	}
 
-	public void setDias(String[] dias) {
+	public void setDias(List<Character> dias) {
 		this.dias = dias;
 	}
 
-	public int[] getPeriodoUno() {
+	public List<Integer> getPeriodoUno() {
 		return periodoUno;
 	}
 
-	public void setPeriodoUno(int[] periodoUno) {
+	public void setPeriodoUno(List<Integer> periodoUno) {
 		this.periodoUno = periodoUno;
 	}
 
-	public int[] getPeriodoDos() {
+	public List<Integer> getPeriodoDos() {
 		return periodoDos;
 	}
 
-	public void setPeriodoDos(int[] periodoDos) {
+	public void setPeriodoDos(List<Integer> periodoDos) {
 		this.periodoDos = periodoDos;
 	}
 
 	@Override
 	public String toString() {
 		return "Peticion [actividad=" + actividad + ", nombreSala=" + nombreSala + ", fechaInicio=" + fechaInicio
-				+ ", fechaFin=" + fechaFin + ", dias=" + Arrays.toString(dias) + ", periodoUno="
-				+ Arrays.toString(periodoUno) + ", periodoDos=" + Arrays.toString(periodoDos) + "]";
+				+ ", fechaFin=" + fechaFin + ", dias=" + dias + ", periodoUno="
+				+ periodoUno + ", periodoDos=" + periodoDos + "]";
 	}
 }
