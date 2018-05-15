@@ -90,6 +90,46 @@ public class PeticionFormat {
       }
       return horas;
     }
+    
+//        public static List<Integer> getRangeTime(String string){
+
+//        List<Integer> horas = new ArrayList<>();
+//        String[] parts = null;
+//        String[] parts2 = null;
+//        System.out.println("Entrada string: "+string);
+//        if(string.length() <= 5) {
+//        	 parts = string.split("-");
+//        }else {
+//        	parts = string.split("_");
+//        }
+        
+        
+        
+//        System.out.println("Parte1: "+parts[0]);
+//        System.out.println("Parte2: "+parts[1]);
+
+//        for (int i = 0; i < parts.length; i++) {
+//        	System.out.println("Parte actual: "+parts[i]);
+//        	if(parts[i].length() <=1) {
+//        		parts2 = parts;
+                
+//        		System.out.println("Parte1 hecha: "+parts2[i]);
+//        		System.out.println("Parte2 hecha: "+parts2[i+1]);
+//        	}else {
+//        		parts2 = parts[i].split("-");
+                
+//        		System.out.println("Part1big hecha: "+parts2[i]);
+//        		System.out.println("Part2big hecha: "+parts2[i+1]);
+//        	}
+             
+//            for(int y = 0; y < parts2.length;y++)
+//                horas.add(Integer.parseInt(parts2[y]));
+                
+
+//      }
+        
+//      return horas;
+//    }
 
 }
 
